@@ -1,0 +1,17 @@
+---
+- hosts: WebServer
+  become: yes
+  tasks:
+  - name: install tomcat7
+    apt:
+      name: tomcat7
+      state: present
+  - name: s3 to webapps
+    get_url:
+      url: https://s3-us-west-1.amazonaws.com/s3-bucket-deops/sm-core-2.4.0.jar
+      dest: /var/lib/tomcat7/webapps/sm-core-2.4.0.jar
+  handlers:
+  - name: restart apache
+    service:
+      name: tomcat7
+      state: restarted

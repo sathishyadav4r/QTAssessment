@@ -1,0 +1,9 @@
+[WebServer]
+localhost
+
+[DbServer]
+ip-172-31-35-12.us-east-2.compute.internal
+
+[Unix]
+localhost
+ip-172-31-35-12.us-east-2.compute.internal
